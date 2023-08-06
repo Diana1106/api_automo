@@ -1,0 +1,31 @@
+http://localhost:3000/api#/
+http://localhost:4200/
+
+
+create database automotriz;
+use automotriz;
+
+CREATE TABLE `personas` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `tareas` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tareas` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+CREATE TABLE `detalles` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `personas` int NOT NULL,
+  `tareas` int NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`personas`) REFERENCES `personas`(`id`),
+FOREIGN KEY (`tareas`) REFERENCES `tareas`(`id`)
+);
+select*from tareas;
+drop database automotriz;
+
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
